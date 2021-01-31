@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>register-form</title>
+</head>
+<body>
+	<form action="RegisterController" method = "post">
+	<div align="justify">
+		F_Name<input type = "text" name= "fname"/> 
+		L_Name<input type = "text" name ="lname"/> <br/>
+		Email<input type= "email"  name= "email"/> <br/>
+		User-Name<input type = "text" name = "username"/><br/>
+		Password<input type = "password" name = "password"/><br/>
+		Gender<input type = "radio" name= gender value= "female"/>Female
+				
+				<input type = "radio" name= gender value= "male"/>Male<br/>
+		Hobbies<input type = "checkbox" name= "hobby" value="reading"/>Reading
+				
+				<input type = "checkbox" name= "hobby" value="listening-music"/>Listening-music
+				
+				<input type = "checkbox" name= "hobby" value="traveling"/>Traveling
+				
+				<input type = "checkbox" name= "hobby" value="sports"/>Sports
+				
+				<input type = "checkbox" name= "hobby" value="browsing"/>Browsing
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type = "checkbox" name= "hobby" value="cooking"/>Cooking<br/>
+		Country<select name = "country">
+					<option value= "select"> Select Country</option>
+					<option value= "USA">USA</option>
+					<option value= "MEXICO">MEXICO</option>
+					<option value= "SPAIN">SPAIN</option>
+					<option value= "RUSSIA">RUSSIA</option>
+					<option value = "CHINA">CHINA</option>
+					<option value = "Others"> others</option>
+		</select>
+		</div>
+		<br/><br/>
+		<div align="right">
+		<input type= "submit" name= "click" value = "submit">	
+		</div>
+	</form>
+
+</body>
+</html>
