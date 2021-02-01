@@ -28,6 +28,7 @@ public class RegisterController extends HttpServlet {
 	
 	protected void registerNewUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
+		RequestDispatcher rd = null;
 		User user = new User();
 		user.setfName(request.getParameter("fname"));
 		user.setLname( request.getParameter("lname"));
@@ -37,18 +38,24 @@ public class RegisterController extends HttpServlet {
 		user.setGender(request.getParameter("gender"));
 		user.setHobby(request.getParameter("hobby"));
 		user.setCountry(request.getParameter("country"));
+		if (user.getfName() !=null && user.getLname() !=null  
+					&& user.getEmail() !=null 
+					&& user.getUsername()!=null
+					&& user.getPassword() !=null
+					&& user.getGender() !=null
+					&& user.getHobby() !=null
+					&& user.getCountry() !=null) {
+										
 		userDao.saveUser(user);
 		//RequestDispatcher rd = request.getRequestDispatcher("userlist.jsp");
 		//response.sendRedirect("userlist.jsp");
-		RequestDispatcher rd = request.getRequestDispatcher("userlist.jsp");
+		 rd = request.getRequestDispatcher("userlist.jsp");
 		request.setAttribute("user", user);
 		rd.forward(request, response);
-		
-		
-		
-
-		out.print("<br/> Congratulation! " + user.getfName() +" " + user.getLname()+ ". You have successfully registered.");
-		out.print("<br/>" + "Here is your profile: <br/>" + user.toString());
+		}else {
+			//out.println("<center> <span='color:red'> All fields are required!!</span> </center>");
+			this.doGet(request, response);
+		}
 		
 	}
 
